@@ -11,7 +11,7 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
-#Linked List Implementation
+# Linked List Implementation
 class Node:
     def __init__(self, data):
        self.data = data
@@ -32,7 +32,7 @@ class Stack:
         # return len(self.storage)
 
         # Linked List Implementation
-        # Start at the head and add one to the count until you reach the tail (.next is None or it shpuld be)
+        # Start at the head and add one to the count until you reach the tail (.next is None or it should be!!!)
         return self.size
 
     def push(self, value):
@@ -46,7 +46,7 @@ class Stack:
             self.head = new_node
             # self.head.next = new_node
             self.tail = new_node
-        # Otherwise, if there are nodes, change the current tail's .next value from None to the value
+        # Otherwise, if there are nodes, then change the current tail's .next value from None to the value
         else:
             self.tail.next = new_node
             self.tail = new_node

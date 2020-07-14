@@ -26,5 +26,4 @@ a = ['Bob', 'Slack', ['reddit', '89', 101, ['alacritty', '(brackets)', 5, 375]],
 # {slice, owned}
 # 22
 
-for s in a:
-    print(*s)
+print(*a, sep = "\n")
