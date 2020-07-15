@@ -38,14 +38,14 @@ class BSTNode:
         if target >= self.value:
             if self.right is None:
                 return False
-        else:
-            return self.right.contains(target)
+            else:
+                return self.right.contains(target)
         
-        if target < self.value:
-            if self.left is None:
-                return False
-        else:
-            return self.left.contains(target)
+            if target < self.value:
+                if self.left is None:
+                    return False
+                else:
+                    return self.left.contains(target)
 
         # pass
 
@@ -120,9 +120,21 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
+        if node is None:
+            return
+        
+        print(node.value)
+        node.pre_order_dft(node.left)
+        node.pre_order_drft(node.right)
         # pass
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
+        if node is None:
+            return
+
+        node.post_order_dft(node.left)
+        node.post_order_dft(node.right)
+        print(node.value)
         # pass
 
