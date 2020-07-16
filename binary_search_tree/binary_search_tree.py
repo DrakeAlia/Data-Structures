@@ -27,7 +27,6 @@ class BSTNode:
                 self.right.insert(value)
             else:
                 self.right = BSTNode(value)
-        # pass
 
     # Return True if the tree contains the value
     # False if it does not
@@ -38,24 +37,21 @@ class BSTNode:
         if target >= self.value:
             if self.right is None:
                 return False
-        else:
-            return self.right.contains(target)
+            else:
+                return self.right.contains(target)
         
-        if target < self.value:
-            if self.left is None:
-                return False
-        else:
-            return self.left.contains(target)
-
-        # pass
+            if target < self.value:
+                if self.left is None:
+                    return False
+                else:
+                    return self.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
         if self.right is None:
             return self.value
         else:
-            return self.right.get_max()
-        # pass
+            return self.right.get_max()   
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
@@ -63,8 +59,7 @@ class BSTNode:
         if self.right is not None:
             self.right.for_each(fn)
         if self.left is not None:
-            self.left.for_each(fn)
-        # pass
+            self.left.for_each(fn)   
 
     # Part 2 -----------------------
 
@@ -77,7 +72,6 @@ class BSTNode:
         node.in_order_print(node.left)
         print(node.value)
         node.in_order_print(node.right)
-        # pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -96,33 +90,42 @@ class BSTNode:
                     next_level.append(node.right)
 
             current = next_level 
-        # pass
-
+       
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
         if node is None:
             return
-
+        
         current = [node]
         while current:
             curr_node = current.pop()
             print(curr_node.value)
 
-        if curr_node.right:
-            current.append(curr_node.right)
-        if curr_node.left:
-            current.append(curr_node.left)  
-        # pass
-
+            if curr_node.right:
+                current.append(curr_node.right)
+            if curr_node.left:
+                current.append(curr_node.left)
+        
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        # pass
+        if node is None:
+            return
+        
+        print(node.value)    
+        node.pre_order_dft(node.left)
+        node.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        # pass
+        if node is None:
+            return
+
+        node.post_order_dft(node.left)
+        node.post_order_dft(node.right)
+        print(node.value)
+        
 
