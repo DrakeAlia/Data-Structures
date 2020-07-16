@@ -103,16 +103,16 @@ class BSTNode:
     def dft_print(self, node):
         if node is None:
             return
-
+        
         current = [node]
         while current:
             curr_node = current.pop()
             print(curr_node.value)
 
-        if curr_node.right:
-            current.append(curr_node.right)
-        if curr_node.left:
-            current.append(curr_node.left)  
+            if curr_node.right:
+                current.append(curr_node.right)
+            if curr_node.left:
+                current.append(curr_node.left)
         # pass
 
     # Stretch Goals -------------------------
@@ -123,10 +123,9 @@ class BSTNode:
         if node is None:
             return
         
-        print(node.value)
+        print(node.value)    
         node.pre_order_dft(node.left)
-        node.pre_order_drft(node.right)
-        # pass
+        node.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
